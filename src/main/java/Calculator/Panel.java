@@ -4,8 +4,7 @@ import Calculator.Context;
 import sun.management.snmp.jvmmib.JVM_MANAGEMENT_MIBOidTable;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Panel extends JPanel {
 
@@ -17,9 +16,30 @@ public class Panel extends JPanel {
 
     public Panel() {
         setLayout(null);
+        setFocusable(true);
+        grabFocus();
 
-        JButton jButtonClear = new JButton("C");
-        JButton jButtonEqually = new JButton("=");
+        final JButton jButtonClear = new JButton("C");
+        final JButton jButtonEqually = new JButton("=");
+
+        final Context calc = new Context(output);
+
+        jButtonClear.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(jButtonClear.getText(), output);
+                //System.out.println(jButtonClear.getText());
+                //output.setText("");
+            }
+        });
+
+        jButtonEqually.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < 4; i++) {
+                    calc.press(jButtonEqually.getText(), output);
+                }
+            }
+
+        });
 
         jButtonClear.setBounds(10, 250, 50, 50);
         jButtonEqually.setBounds(130, 250, 50, 50);
@@ -47,7 +67,17 @@ public class Panel extends JPanel {
                 action[i].setBounds(190, 250, 50, 50);
             }
             add(action[i]);
+
+            action[i].addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    for (int i = 0; i < 4; i++) {
+                        calc.press(action[i].getText(), output);
+                    }
+                }
+
+            });
         }
+
 
         /**
          * Создание и добавление кнопок/цифр от 0 до 9
@@ -67,7 +97,7 @@ public class Panel extends JPanel {
                         helperY = 130;
                     } else helperX += 60;
                 }
-                if (i >= 7 && i <= 9) {
+                if (i >= 7) {
                     if (i == 7) {
                         helperX = 10;
                         helperY = 190;
@@ -77,24 +107,76 @@ public class Panel extends JPanel {
             }
             add(numbers[i]);
         }
+        numbers[0].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[0].getText(), output);
+            }
+        });
+        numbers[1].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[1].getText(), output);
+            }
+        });
+        numbers[2].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[2].getText(), output);
+            }
+        });
+        numbers[3].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[3].getText(), output);
+            }
+        });
+        numbers[4].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[4].getText(), output);
+            }
+        });
+        numbers[5].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[5].getText(), output);
+            }
+        });
+        numbers[6].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[6].getText(), output);
+            }
+        });
+        numbers[7].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[7].getText(), output);
+            }
+        });
+        numbers[8].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[8].getText(), output);
+            }
+        });
+        numbers[9].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(numbers[9].getText(), output);
+            }
+        });
+
 
         output.setBounds(10, 10, 230, 50);
         output.setEditable(false);
         add(output);
-    //}
 
-    //public void listenerButton() {
-        final Context calc = new Context();
 
-        ActionListener listener = new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JButton b = (JButton) e.getSource();
-                output.setText(output.getText() + b.getText());
-                calc.press(output.getFocusAccelerator());
+        /**
+         * "прослушивание" клавиатуры
+         */
+        /*addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                char symbol = e.getKeyChar();
+                if (!Character.isDigit(symbol))
+                    return;
+                else {calc.press(symbol + "", output);
+                output.setText(output.getText() + symbol);}
             }
-        };
-        for (JButton b : numbers) {
-            b.addActionListener(listener);
-        }
+        });*/
+
     }
 }
