@@ -36,7 +36,7 @@ public class Context {
                 state.arifm(this, key);
                 break;
             case '=':
-                state.equal(this);
+                state.equal(this, null);
         }
     }
 

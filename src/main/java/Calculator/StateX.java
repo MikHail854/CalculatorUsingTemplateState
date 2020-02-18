@@ -1,5 +1,7 @@
 package Calculator;
 
+import javax.swing.*;
+
 public class StateX extends State {
 
     boolean typing = false;
@@ -23,8 +25,8 @@ public class StateX extends State {
         context.state.arifm(context, key);
     }
 
-    void equal(Context context) {
+    void equal(Context context, JTextField output) {
         context.state = new StateAnswer();
-        context.state.equal(context);
+        context.state.equal(context, output);
     }
 }

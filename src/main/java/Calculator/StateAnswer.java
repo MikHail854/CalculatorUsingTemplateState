@@ -1,5 +1,7 @@
 package Calculator;
 
+import javax.swing.*;
+
 public class StateAnswer extends State {
 
     void clear(Context context) {
@@ -17,7 +19,7 @@ public class StateAnswer extends State {
         context.state.arifm(context, key);
     }
 
-    void equal(Context context) {
+    void equal(Context context, JTextField output) {
        int answer = 0;
        switch (context.o){
            case '+' : answer = context.x + context.y; break;
@@ -26,5 +28,6 @@ public class StateAnswer extends State {
            case '/' : answer = context.x / context.y; break;
        }
        context.x = answer;
+       output.setText(String.valueOf(answer));
     }
 }

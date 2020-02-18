@@ -1,5 +1,7 @@
 package Calculator;
 
+import javax.swing.*;
+
 public class StateAction extends State {
 
     void clear(Context context) {
@@ -16,9 +18,9 @@ public class StateAction extends State {
         context.o = key;
     }
 
-    void equal(Context context) {
+    void equal(Context context, JTextField output) {
         context.y = context.x;
         context.state = new StateAnswer();
-        context.state.equal(context);
+        context.state.equal(context, output);
     }
 }
