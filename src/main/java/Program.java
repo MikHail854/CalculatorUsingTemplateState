@@ -16,7 +16,7 @@ public class Program {
         while (true) {
             char key = (char) System.in.read();
             if (key >= ' ') {
-                //calc.press(key);
+                calc.press(key);
                 System.out.println(calc);
             }
         }
@@ -25,9 +25,11 @@ public class Program {
     static JFrame getJFrame() {
         JFrame jFrame = new JFrame();
         jFrame.setVisible(true);
-        jFrame.setBounds(750, 250, 265,347);
-        //jFrame.setBounds(750, 250, 270,350);
+        //jFrame.setBounds(750, 250, 265, 347);
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jFrame.setSize(265,347);
+        jFrame.setLocationRelativeTo(null);//расположение по центру экрана
+        //jFrame.setResizable(false);//нельзя изменять размер окна
         return jFrame;
     }
 
