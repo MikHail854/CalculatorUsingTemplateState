@@ -9,7 +9,7 @@ public abstract class State {
     abstract void digit(Context context, JTextField output, String key);
 
     //abstract void arifm(Context context, char key);
-    abstract void arifm(Context context, String key);
+    abstract void arifm(Context context,  JTextField output, String key);
 
     abstract void equal(Context context, JTextField output);
 

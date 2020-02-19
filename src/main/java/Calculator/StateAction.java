@@ -15,8 +15,16 @@ public class StateAction extends State {
 
     }
 
-    void arifm(Context context, String key) {
-        context.o = key;
+    void arifm(Context context,  JTextField output, String key) {
+        String helper = "";
+        if (context.o == "") {
+            context.o = key;
+            output.setText(output.getText() + context.o);
+        } else {
+            helper = output.getText();
+            context.o = key;
+            output.setText(helper.substring(0, helper.length()-1) + context.o);
+        }
     }
 
     void equal(Context context, JTextField output) {

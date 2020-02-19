@@ -26,38 +26,10 @@ public class Context {
                 || key.charAt(0) == '8' || key.charAt(0) == '9') {
             state.digit(this, output, key);
         } else if (key.charAt((key.length() - 1)) == '+' || key.charAt((key.length() - 1)) == '-' || key.charAt((key.length() - 1)) == '*' || key.charAt((key.length() - 1)) == '/') {
-            state.arifm(this, key);
+            state.arifm(this, output, key);
         } else if (key.charAt((key.length() - 1)) == '=')
             state.equal(this, output);
         }
-    //}
-        /*switch (key) {
-            case "c":
-            case "C":
-                state.clear(this);
-                break;
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                state.digit(this, key);
-                break;
-            case '+':
-            case '-':
-            case '*':
-            case '/':
-                state.arifm(this, key);
-                break;
-            case '=':
-                state.equal(this, null);*/
-        //}
-    //}
 
     /**
      * Выполнение тестов

@@ -10,7 +10,7 @@ public class StateX extends State {
         context.x = 0;
         context.y = 0;
         //context.o = '+';
-        context.o = "+";
+        context.o = "";
         output.setText("");
 
     }
@@ -21,12 +21,14 @@ public class StateX extends State {
             typing = true;
         }
         //context.x = context.x * 10 + Character.getNumericValue(Integer.parseInt(key));
-        output.setText(output.getText() +  (context.x * 10 + Character.getNumericValue(key.charAt(0))));
+        output.setText(output.getText() +  (/*context.x * 10*/ + Character.getNumericValue(key.charAt(0))));
+        context.x = Integer.parseInt(output.getText());
+        //output.setText(output.getText() +  (context.x * 10 + Character.getNumericValue(key.charAt(0))));
     }
 
-    void arifm(Context context, String key) {
+    void arifm(Context context,  JTextField output, String key) {
         context.state = new StateAction();
-        context.state.arifm(context, key);
+        context.state.arifm(context, output, key);
     }
 
     void equal(Context context, JTextField output) {

@@ -34,9 +34,9 @@ public class Panel extends JPanel {
 
         jButtonEqually.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 4; i++) {
+                //for (int i = 0; i < 4; i++) {
                     calc.press(jButtonEqually.getText(), output);
-                }
+                //}
             }
 
         });
@@ -67,16 +67,27 @@ public class Panel extends JPanel {
                 action[i].setBounds(190, 250, 50, 50);
             }
             add(action[i]);
-
-            action[i].addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    for (int i = 0; i < 4; i++) {
-                        calc.press(action[i].getText(), output);
-                    }
-                }
-
-            });
         }
+        action[0].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(action[0].getText(), output);
+            }
+        });
+        action[1].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(action[1].getText(), output);
+            }
+        });
+        action[2].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(action[2].getText(), output);
+            }
+        });
+        action[3].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calc.press(action[3].getText(), output);
+            }
+        });
 
 
         /**
