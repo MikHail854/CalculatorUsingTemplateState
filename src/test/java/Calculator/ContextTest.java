@@ -1,15 +1,13 @@
 package Calculator;
 
-import javax.swing.*;
-
 import static org.junit.Assert.*;
 
 public class ContextTest {
 
     @org.junit.Test
-    public void run() throws Exception{
+    public void run() throws Exception {
         Context context = new Context();
-        //JTextField output = new JTextField();
+
         /*int actual = context.run("C2+3=");
         int expect = 5;
         assertEquals(expect, actual);*/
@@ -19,9 +17,9 @@ public class ContextTest {
          * assertEquals(5, context.run("C2+3="));
          */
 
-        /*assertEquals(0, context.run("С", output));
-        assertEquals(2, context.run("С22", output));
-        /*assertEquals(25, context.run("C25"));
+        assertEquals(0, context.run("С"));
+        assertEquals(2, context.run("С2"));
+        assertEquals(25, context.run("C25"));
         assertEquals(5, context.run("C2+3="));
         assertEquals(257452, context.run("С257452"));
         assertEquals(257452, context.run("C257452="));
@@ -37,6 +35,6 @@ public class ContextTest {
         assertEquals(1, context.run("С9/5="));
         assertEquals(0, context.run("С=231527*000="));
         assertEquals(50, context.run("С45+-+-+-/*+5="));
-        assertEquals(45, context.run("С5+15=30="));*/
+        assertEquals(45, context.run("С5+15=30="));
     }
 }
