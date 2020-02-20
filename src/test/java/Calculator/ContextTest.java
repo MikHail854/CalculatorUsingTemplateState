@@ -17,24 +17,24 @@ public class ContextTest {
          * assertEquals(5, context.run("C2+3="));
          */
 
-        assertEquals(0, context.run("С"));
-        assertEquals(2, context.run("С2"));
-        assertEquals(25, context.run("C25"));
-        assertEquals(5, context.run("C2+3="));
-        assertEquals(257452, context.run("С257452"));
-        assertEquals(257452, context.run("C257452="));
-        assertEquals(777, context.run("С123+654="));
-        assertEquals(8, context.run("С2+2*2="));
-        assertEquals(10, context.run("С5+="));
-        assertEquals(100, context.run("С125-25="));
-        assertEquals(20, context.run("С100/5="));
-        assertEquals(56, context.run("С7*8="));
-        assertEquals(2025, context.run("С45*45="));
-        assertEquals(5625, context.run("С75*75="));
-        assertEquals(57, context.run("С45-7*3/2="));
-        assertEquals(1, context.run("С9/5="));
-        assertEquals(0, context.run("С=231527*000="));
-        assertEquals(50, context.run("С45+-+-+-/*+5="));
-        assertEquals(45, context.run("С5+15=30="));
+        assertEquals(0,context.run("C"), context.answer);
+        assertEquals(2,context.run("C2"), context.answer);
+        assertEquals(25,context.run("C25"), context.answer);
+        assertEquals(5,context.run("C2+3="), context.answer);
+        assertEquals(257452,context.run("C257452"), context.answer);
+        assertEquals(257452,context.run("C257452="), context.answer);
+        assertEquals(777,context.run("C123+456="), context.answer);
+        assertEquals(8,context.run("C2+2*2"), context.answer);
+        assertEquals(10,context.run("C5+="), context.answer);
+        assertEquals(100,context.run("C125-25="), context.answer);
+        assertEquals(20,context.run("C100/5="), context.answer);
+        assertEquals(56,context.run("C7*8="), context.answer);
+        assertEquals(2025,context.run("C45*45="), context.answer);
+        assertEquals(5625,context.run("C75*75="), context.answer);
+        assertEquals(57,context.run("C45-7*3/2="), context.answer);
+        assertEquals(1.8,context.run("C9/5="), context.answer);
+        assertEquals(0,context.run("C=231527*000="), context.answer);
+        assertEquals(50,context.run("C45+-+-+-+-/*+5="), context.answer);
+        assertEquals(45,context.run("C5+15=30="), context.answer);
     }
 }
