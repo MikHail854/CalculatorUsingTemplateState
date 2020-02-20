@@ -3,8 +3,9 @@ package Calculator;
 import javax.swing.*;
 
 public class Context {
-    int x;
-    int y;
+    double x;
+    double y;
+    double answer = 0;
     char o;
     String operation;
     State state;
@@ -76,7 +77,7 @@ public class Context {
      * Код для тестирования правильности логики расчетов
      */
 
-    public int run(String keys) { //"C2+3="
+    public double run(String keys) { //"C2+3="
         for (char key : keys.toCharArray()) {
             press(key);
         }
@@ -88,7 +89,7 @@ public class Context {
         return
                 "x=" + x +
                         "   y=" + y +
-                        "    op=" + operation +
+                        "    op=" + o +
                         "       state=" + state.getClass().getName();
     }
 }

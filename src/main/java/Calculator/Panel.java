@@ -178,17 +178,16 @@ public class Panel extends JPanel {
          * "прослушивание" клавиатуры
          */
 
-        addKeyListener(new KeyAdapter() {
+        /*addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
+                boolean flag = false;
                 char symbol = e.getKeyChar();
+                //Context context = new Context(output);
                 if (!Character.isDigit(symbol))
                     return;
-                //else {
-                //calc.press(symbol + "", output);
                 output.setText(output.getText() + symbol);
-                // }
             }
-        });
+        });*/
     }
 }

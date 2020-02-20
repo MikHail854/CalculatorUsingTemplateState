@@ -24,7 +24,7 @@ public class StateAnswer extends State {
     }
 
     void equal(Context context, JTextField output) {
-        int answer = 0;
+        double answer = 0;
         switch (context.operation.charAt(0)) {
             case '+':
                 answer = context.x + context.y;
@@ -63,13 +63,12 @@ public class StateAnswer extends State {
     }
 
     void equal(Context context) {
-        int answer = 0;
         switch (context.o){
-            case '+' : answer = context.x + context.y; break;
-            case '-' : answer = context.x - context.y; break;
-            case '*' : answer = context.x * context.y; break;
-            case '/' : answer = context.x / context.y; break;
+            case '+' : context.answer = context.x + context.y; break;
+            case '-' : context.answer = context.x - context.y; break;
+            case '*' : context.answer = context.x * context.y; break;
+            case '/' : context.answer = context.x / context.y; break;
         }
-        context.x = answer;
+        context.x = context.answer;
     }
 }
